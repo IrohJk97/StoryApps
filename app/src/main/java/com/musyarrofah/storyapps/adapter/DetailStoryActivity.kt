@@ -20,6 +20,7 @@ class DetailStoryActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         supportActionBar?.title = "Story Detail"
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         val data = intent.getParcelableExtra<StoryResult>(DETAIL_STORY)
 
@@ -30,6 +31,12 @@ class DetailStoryActivity : AppCompatActivity() {
             .apply(RequestOptions().override(300, 300))
             .into(binding.photoDetails)
 
+    }
+
+    @Suppress("DEPRECATION")
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 
 

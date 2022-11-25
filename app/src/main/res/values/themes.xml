@@ -59,4 +59,10 @@
         <item name="android:windowActivityTransitions">true</item>
     </style>
 
+    <style name="radView" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">20dp</item>
+        <item name="color">@color/white</item>
+    </style>
+
 </resources>

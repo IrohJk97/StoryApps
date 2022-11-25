@@ -77,6 +77,7 @@ class AddStoryActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         supportActionBar?.title = "Add Story"
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         if (!allPermissionsGranted()) {
             ActivityCompat.requestPermissions(
@@ -199,6 +200,12 @@ class AddStoryActivity : AppCompatActivity() {
         } else {
             binding.progressCircular.visibility = View.GONE
         }
+    }
+
+    @Suppress("DEPRECATION")
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 
 }

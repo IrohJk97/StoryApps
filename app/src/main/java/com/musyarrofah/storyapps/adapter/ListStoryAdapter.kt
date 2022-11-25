@@ -1,7 +1,7 @@
 package com.musyarrofah.storyapps.adapter
 
+import android.annotation.SuppressLint
 import android.app.Activity
-import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -23,6 +23,7 @@ class ListStoryAdapter : RecyclerView.Adapter<ListStoryAdapter.ListViewHolder>()
         this.onItemClickCallback  = onItemClickCallback
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     fun setData(story: List<StoryResult>) {
         listStory.clear()
         listStory.addAll(story)
@@ -37,11 +38,13 @@ class ListStoryAdapter : RecyclerView.Adapter<ListStoryAdapter.ListViewHolder>()
                     ActivityOptionsCompat.makeSceneTransitionAnimation(
                         itemView.context as Activity,
                         Pair(binding.storyPhoto, "photo"),
-                        Pair(binding.tvUsername, "name")
+                        Pair(binding.tvUsername, "name"),
+                        Pair(binding.tvDescription, "deskripsi")
                     )
                 onItemClickCallback?.onItemClicked(story, optionsCompat)
             }
             binding.tvUsername.text = story.name
+            binding.tvDescription.text = story.description
             Glide.with(itemView.context)
                 .load(story.photoUrl)
                 .apply(RequestOptions().override(200, 200))
