@@ -29,5 +29,7 @@
     <string name="btn_register">DAFTAR</string>
     <string name="txtLogin">Saya sudah punya akun</string>
     <string name="tvLogin">\tMasuk</string>
+    <string name="photo">photo</string>
+
 
 </resources>
