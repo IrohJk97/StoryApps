@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">StoryApp</string>
+
+    <string name="tvEmail">Email</string>
+    <string name="tlEmail">Masukkan email anda</string>
+
+    <string name="tvPassword">Password</string>
+    <string name="tlPassword">Masukkan kata sandi anda</string>
+
+    <string name="tvName">Nama</string>
+    <string name="tlName">Masukkan nama anda</string>
+
+    <string name="desc">Deskripsi</string>
+    <string name="upload_success">Unggahan berhasil</string>
+
+    <string name="input_message" translatable="false">Input Your %1$s</string>
+
+    <!-- Bagian Login -->
+    <string name="login_title">Masuk ke akun anda</string>
+    <string name="login_sub_title"><font color="#00C988"><b>Masuk</b></font> Jika anda sudah memiliki akun.</string>
+    <string name="btn_login">MASUK</string>
+    <string name="txtRegister">Saya tidak punya akun</string>
+    <string name="tvRegister">\tDaftar</string>
+
+    <!-- Bagian Register -->
+    <string name="register_title">Buat sebuah akun</string>
+    <string name="register_sub_title"><font color="#00C988"><b>Daftar</b></font> untuk memulai aplikasi</string>
+    <string name="btn_register">DAFTAR</string>
+    <string name="txtLogin">Saya sudah punya akun</string>
+    <string name="tvLogin">\tMasuk</string>
+
+</resources>

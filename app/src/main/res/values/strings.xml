@@ -1,0 +1,42 @@
+<resources>
+    <string name="app_name">StoryApps</string>
+
+    <string name="tvEmail">Email</string>
+    <string name="tlEmail">Enter your email</string>
+
+    <string name="tvPassword">Password</string>
+    <string name="tlPassword">Enter your password</string>
+
+    <string name="tvName">Name</string>
+    <string name="tlName">Enter your name</string>
+
+    <string name="desImg" translatable="false">Image Item</string>
+    <string name="desc">Description</string>
+
+    <string name="addStory" translatable="false">Button add story</string>
+
+    <string name="imgCapture" translatable="false">Image Capture</string>
+    <string name="swCamera" translatable="false">Switch Camera</string>
+
+    <string name="hint_email" translatable="false"> </string>
+    <string name="hint_name" translatable="false"> </string>
+    <string name="hint_password" translatable="false"> </string>
+
+    <string name="upload_success">Upload Success</string>
+
+    <string name="input_message" translatable="false">Input Your %1$s</string>
+
+    //Bagian Login
+    <string name="login_title">Login to your account</string>
+    <string name="login_sub_title"><font color="#FF993366"><b>Login</b></font> If you already have an account.</string>
+    <string name="btn_login">LOGIN</string>
+    <string name="txtRegister">I don\'t have an account</string>
+    <string name="tvRegister">\tRegister</string>
+
+    //Bagian Register
+    <string name="register_title">Create an account</string>
+    <string name="register_sub_title"><font color="#FF993366"><b>Register</b></font> to get started with the app</string>
+    <string name="btn_register">REGISTER</string>
+    <string name="txtLogin">I already have an account</string>
+    <string name="tvLogin">\tLogin</string>
+</resources>
