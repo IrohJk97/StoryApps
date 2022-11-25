@@ -40,4 +40,9 @@
     <string name="txtLogin">I already have an account</string>
     <string name="tvLogin">\tLogin</string>
     <string name="photo">photo</string>
+
+    <string name="story_from">Story from : </string>
+    <string name="muat_ulang">Muat Ulang</string>
+    <string name="timeout">Timeout</string>
+
 </resources>

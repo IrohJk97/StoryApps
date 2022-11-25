@@ -14,11 +14,12 @@ import androidx.lifecycle.ViewModelProvider
 import com.musyarrofah.storyapps.databinding.ActivityLoginBinding
 import com.musyarrofah.storyapps.login.LoginRequest
 import com.musyarrofah.storyapps.preferences.SettingPreference
+import com.musyarrofah.storyapps.repository.StoryRepository
 import com.musyarrofah.storyapps.utils.ViewModelFactory
 import com.musyarrofah.storyapps.viewmodel.PreferencesViewModel
 import com.musyarrofah.storyapps.viewmodel.UserViewModel
 
-class LoginActivity : AppCompatActivity() {
+class LoginActivity(repository: StoryRepository) : AppCompatActivity() {
 
     private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
 

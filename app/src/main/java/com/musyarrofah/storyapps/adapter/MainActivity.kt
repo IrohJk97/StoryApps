@@ -48,7 +48,7 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-        adapter = ListStoryAdapter()
+        adapter = ListStoryAdapter(repository)
         adapter.setOnItemClick(object : ListStoryAdapter.OnItemClickCallback {
             override fun onItemClicked(data: StoryResult, optionsCompat: ActivityOptionsCompat) {
                 intent = Intent(this@MainActivity, DetailStoryActivity::class.java)

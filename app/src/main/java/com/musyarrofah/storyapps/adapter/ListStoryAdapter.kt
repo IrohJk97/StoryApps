@@ -12,8 +12,9 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.musyarrofah.storyapps.databinding.ItemStoryBinding
 import com.musyarrofah.storyapps.liststory.StoryResult
+import com.musyarrofah.storyapps.repository.StoryRepository
 
-class ListStoryAdapter : RecyclerView.Adapter<ListStoryAdapter.ListViewHolder>() {
+class ListStoryAdapter(repository: StoryRepository) : RecyclerView.Adapter<ListStoryAdapter.ListViewHolder>() {
 
     private val listStory = ArrayList<StoryResult>()
 

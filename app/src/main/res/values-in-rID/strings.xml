@@ -31,5 +31,11 @@
     <string name="tvLogin">\tMasuk</string>
     <string name="photo">photo</string>
 
+    <string name="story_from">Story Dari : </string>
+    <string name="muat_ulang">Muat Ulang</string>
+    <string name="timeout">Timeout</string>
+
+
+
 
 </resources>

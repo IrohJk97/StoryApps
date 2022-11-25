@@ -11,9 +11,10 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.musyarrofah.storyapps.databinding.ActivityRegisterBinding
 import com.musyarrofah.storyapps.register.RegisterRequest
+import com.musyarrofah.storyapps.repository.StoryRepository
 import com.musyarrofah.storyapps.viewmodel.UserViewModel
 
-class RegisterActivity : AppCompatActivity() {
+class RegisterActivity(repository: StoryRepository) : AppCompatActivity() {
 
     private lateinit var binding: ActivityRegisterBinding
     private lateinit var viewModel: UserViewModel

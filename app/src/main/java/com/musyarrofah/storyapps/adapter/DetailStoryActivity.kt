@@ -12,6 +12,7 @@ class DetailStoryActivity : AppCompatActivity() {
         const val DETAIL_STORY = "detail_story"
     }
 
+
     private lateinit var binding: ActivityDetailStoryBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {

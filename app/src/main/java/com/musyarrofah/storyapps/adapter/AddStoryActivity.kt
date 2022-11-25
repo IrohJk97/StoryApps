@@ -20,6 +20,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.musyarrofah.storyapps.R
 import com.musyarrofah.storyapps.databinding.ActivityAddStoryBinding
 import com.musyarrofah.storyapps.preferences.SettingPreference
+import com.musyarrofah.storyapps.repository.StoryRepository
 import com.musyarrofah.storyapps.utils.ViewModelFactory
 import com.musyarrofah.storyapps.utils.reduceFileImage
 import com.musyarrofah.storyapps.utils.rotateBitmap
@@ -33,7 +34,7 @@ import okhttp3.RequestBody.Companion.asRequestBody
 import okhttp3.RequestBody.Companion.toRequestBody
 import java.io.File
 
-class AddStoryActivity : AppCompatActivity() {
+class AddStoryActivity(repository: StoryRepository) : AppCompatActivity() {
 
     private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "setting")
 
