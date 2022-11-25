@@ -27,7 +27,7 @@
     <string name="input_message" translatable="false">Input Your %1$s</string>
 
     //Bagian Login
-    <string name="login_title">Muzam izin join ya hehew</string>
+    <string name="login_title">Login to your account</string>
     <string name="login_sub_title"><font color="#FF993366"><b>Login</b></font> If you already have an account.</string>
     <string name="btn_login">LOGIN</string>
     <string name="txtRegister">I don\'t have an account</string>

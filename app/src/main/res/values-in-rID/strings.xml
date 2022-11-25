@@ -17,7 +17,7 @@
     <string name="input_message" translatable="false">Input Your %1$s</string>
 
     <!-- Bagian Login -->
-    <string name="login_title">Muzam izin join ya hehew</string>
+    <string name="login_title">Masuk ke akun anda</string>
     <string name="login_sub_title"><font color="#00C988"><b>Masuk</b></font> Jika anda sudah memiliki akun.</string>
     <string name="btn_login">MASUK</string>
     <string name="txtRegister">Saya tidak punya akun</string>
