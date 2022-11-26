@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.musyarrofah.storyapps">
+    package="com.musyarrofah.storyapps"
+    tools:ignore="ImpliedTouchscreenHardware,MissingLeanbackLauncher">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -13,6 +14,12 @@
         android:required="false" />
     <uses-feature
         android:name="android.hardware.camera.autofocus"
+        android:required="false" />
+    <uses-feature
+        android:name="android.software.leanback"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.location.gps"
         android:required="false" />
 
     <uses-permission android:name="android.permission.CAMERA" />
@@ -54,32 +61,32 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="YOUR_API_KEY" />
+
         <activity
-            android:name=".maps.GoogleMapsActivity"
-            android:exported="true"
-            android:label="@string/title_activity_google_maps">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
+            android:name=".maps.MapsActivity"
+            android:exported="false"
+            android:label="@string/title_activity_maps" />
         <activity
             android:name=".adapter.DetailStoryActivity"
             android:exported="true" />
         <activity
             android:name=".adapter.RegisterActivity"
-            android:exported="true" />
+            android:exported="true"
+            tools:ignore="Instantiatable" />
         <activity
             android:name=".adapter.LoginActivity"
-            android:exported="true" />
+            android:exported="true"
+            tools:ignore="Instantiatable" />
         <activity
             android:name=".adapter.CameraActivity"
             android:exported="true" />
         <activity
             android:name=".adapter.AddStoryActivity"
-            android:exported="true" />
+            android:exported="true"
+            tools:ignore="Instantiatable" />
         <activity
             android:name=".adapter.MainActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".adapter.SplashScreenActivity"
             android:exported="true">

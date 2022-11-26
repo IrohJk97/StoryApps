@@ -8,7 +8,6 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
-import androidx.lifecycle.Transformations.map
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -20,17 +19,15 @@ import com.google.android.gms.maps.model.LatLngBounds
 import com.google.android.gms.maps.model.MarkerOptions
 import com.musyarrofah.storyapps.R
 import com.musyarrofah.storyapps.adapter.DetailStoryActivity
-import com.musyarrofah.storyapps.databinding.ActivityGoogleMapsBinding
+import com.musyarrofah.storyapps.databinding.ActivityMapsBinding
 import com.musyarrofah.storyapps.liststory.StoryResponse
-import com.musyarrofah.storyapps.viewmodel.PreferencesViewModel.Companion.getInstance
-import com.musyarrofah.storyapps.preferences.SettingPreference.Companion.getInstance
 import com.musyarrofah.storyapps.repository.ResultProcess
 import com.musyarrofah.storyapps.utils.ViewModelFactory
 
-class GoogleMapsActivity : AppCompatActivity(), OnMapReadyCallback {
+class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private lateinit var mMap: GoogleMap
-    private lateinit var binding: ActivityGoogleMapsBinding
+    private lateinit var activityMapsBinding: ActivityMapsBinding
     private lateinit var mapsViewModel: MapsViewModel
     private val boundBuilder = LatLngBounds.Builder()
     private var iteratorPage: Int = 0
@@ -39,40 +36,19 @@ class GoogleMapsActivity : AppCompatActivity(), OnMapReadyCallback {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = ActivityGoogleMapsBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        activityMapsBinding = ActivityMapsBinding.inflate(layoutInflater)
+        setContentView(activityMapsBinding.root)
 
         iteratorPage = 1
-        supportActionBar?.title = "Maps Story"
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
 
-        setupViewModel()
-
+        viewModel()
     }
 
-    override fun onMapReady(googleMap: GoogleMap) {
-        mMap = googleMap
-
-        // Add a marker in Sydney and move the camera
-        val sydney = LatLng(-34.0, 151.0)
-        mMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
-
-        mMap.uiSettings.isZoomControlsEnabled = true
-        mMap.uiSettings.isIndoorLevelPickerEnabled = true
-        mMap.uiSettings.isCompassEnabled = true
-        mMap.uiSettings.isMapToolbarEnabled = true
-
-        setupStory()
-        getMyLocation()
-    }
-
-    private fun setupViewModel() {
+    private fun viewModel() {
 
         val factory: ViewModelFactory = ViewModelFactory.getInstance(this)
         mapsViewModel = ViewModelProvider(this, factory)[MapsViewModel::class.java]
@@ -150,5 +126,22 @@ class GoogleMapsActivity : AppCompatActivity(), OnMapReadyCallback {
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
         return true
+    }
+
+    override fun onMapReady(googleMap: GoogleMap) {
+        mMap = googleMap
+
+        // Add a marker in Sydney and move the camera
+        val sydney = LatLng(-34.0, 151.0)
+        mMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
+
+        mMap.uiSettings.isZoomControlsEnabled = true
+        mMap.uiSettings.isIndoorLevelPickerEnabled = true
+        mMap.uiSettings.isCompassEnabled = true
+        mMap.uiSettings.isMapToolbarEnabled = true
+
+        setupStory()
+        getMyLocation()
     }
 }

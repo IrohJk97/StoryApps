@@ -16,7 +16,6 @@ import androidx.core.content.ContextCompat
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
-import androidx.lifecycle.ViewModelProvider
 import com.musyarrofah.storyapps.R
 import com.musyarrofah.storyapps.databinding.ActivityAddStoryBinding
 import com.musyarrofah.storyapps.preferences.SettingPreference

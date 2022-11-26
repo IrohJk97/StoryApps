@@ -44,5 +44,6 @@
     <string name="story_from">Story from : </string>
     <string name="muat_ulang">Muat Ulang</string>
     <string name="timeout">Timeout</string>
+    <string name="title_activity_maps">MapsActivity</string>
 
 </resources>
