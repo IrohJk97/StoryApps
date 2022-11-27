@@ -6,12 +6,10 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.util.Pair
-import androidx.leanback.paging.PagingDataAdapter
+import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.bumptech.glide.request.RequestOptions
-import com.musyarrofah.storyapps.R
 import com.musyarrofah.storyapps.adapter.DetailStoryActivity
 import com.musyarrofah.storyapps.databinding.ItemStoryBinding
 import com.musyarrofah.storyapps.liststory.StoryResponse
@@ -36,20 +34,18 @@ class StoryPagingAdapter: PagingDataAdapter<StoryResponse.Story, StoryPagingAdap
             with(binding) {
                 Glide.with(itemView.context)
                     .load(story.photoUrl)
-                    .apply(
-                        RequestOptions.placeholderOf(R.drawable.no_image).error(R.drawable.no_image)
-                    ).into(ivItemPhoto)
+                    .into(storyPhoto)
                 tvUsername.text = story.name
                 tvDescription.text = story.description
             }
             itemView.setOnClickListener {
                 val intent = Intent(itemView.context, DetailStoryActivity::class.java).apply {
-                    putExtra(DetailStoryActivity.EXTRA_DETAIL, story)
+                    putExtra(DetailStoryActivity.DETAIL_STORY, story)
                 }
                 val optionsCompat: ActivityOptionsCompat =
                     ActivityOptionsCompat.makeSceneTransitionAnimation(
                         itemView.context as Activity,
-                        Pair(binding.ivItemPhoto, "image"),
+                        Pair(binding.storyPhoto, "image"),
                         Pair(binding.tvUsername, "name"),
                         Pair(binding.tvDescription,"deskripsi")
                     )

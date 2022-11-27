@@ -81,7 +81,7 @@
             android:name=".adapter.CameraActivity"
             android:exported="true" />
         <activity
-            android:name=".adapter.AddStoryActivity"
+            android:name=".adapter.CreateStoryActivity"
             android:exported="true"
             tools:ignore="Instantiatable" />
         <activity

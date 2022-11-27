@@ -3,13 +3,11 @@ package com.musyarrofah.storyapps.utils
 import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.musyarrofah.storyapps.adapter.AddStoryActivity
-import com.musyarrofah.storyapps.adapter.ListStoryAdapter
-import com.musyarrofah.storyapps.adapter.LoginActivity
-import com.musyarrofah.storyapps.adapter.RegisterActivity
+import com.musyarrofah.storyapps.adapter.*
 import com.musyarrofah.storyapps.di.Injection
 import com.musyarrofah.storyapps.maps.MapsViewModel
 import com.musyarrofah.storyapps.repository.StoryRepository
+import com.musyarrofah.storyapps.viewmodel.*
 import java.lang.IllegalArgumentException
 
 class ViewModelFactory private constructor(private val repository: StoryRepository) :
@@ -17,17 +15,17 @@ class ViewModelFactory private constructor(private val repository: StoryReposito
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        if (modelClass.isAssignableFrom(ListStoryAdapter::class.java)) {
-            return ListStoryAdapter(repository) as T
+        if (modelClass.isAssignableFrom(MainActivityViewModel::class.java)) {
+            return MainActivityViewModel(repository) as T
         }
-        if (modelClass.isAssignableFrom(LoginActivity::class.java)) {
-            return LoginActivity(repository) as T
+        if (modelClass.isAssignableFrom(LoginViewModel::class.java)) {
+            return LoginViewModel(repository) as T
         }
-        if (modelClass.isAssignableFrom(RegisterActivity::class.java)) {
-            return RegisterActivity(repository) as T
+        if (modelClass.isAssignableFrom(RegisterViewModel::class.java)) {
+            return RegisterViewModel(repository) as T
         }
-        if (modelClass.isAssignableFrom(AddStoryActivity::class.java)) {
-            return AddStoryActivity(repository) as T
+        if (modelClass.isAssignableFrom(CreateStoryViewModel::class.java)) {
+            return CreateStoryViewModel(repository) as T
         }
         if (modelClass.isAssignableFrom(MapsViewModel::class.java)) {
             return MapsViewModel(repository) as T

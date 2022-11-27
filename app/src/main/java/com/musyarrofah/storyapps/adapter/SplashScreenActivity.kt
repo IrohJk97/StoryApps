@@ -14,12 +14,13 @@ import com.musyarrofah.storyapps.R
 import com.musyarrofah.storyapps.preferences.SettingPreference
 import com.musyarrofah.storyapps.utils.ViewModelFactory
 import com.musyarrofah.storyapps.viewmodel.PreferencesViewModel
+import com.musyarrofah.storyapps.viewmodel.SplashScreenViewModel
 
 class SplashScreenActivity : AppCompatActivity() {
 
     private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "setting")
 
-    private lateinit var setViewModel: PreferencesViewModel
+    private lateinit var splashScreenViewModel: SplashScreenViewModel
 
     companion object{
         const val DELAY = 4000L
@@ -31,12 +32,12 @@ class SplashScreenActivity : AppCompatActivity() {
 
         supportActionBar?.hide()
 
-        val pref = SettingPreference.getInstance(dataStore)
-        setViewModel = ViewModelProvider(this, ViewModelFactory(pref))[PreferencesViewModel::class.java]
+//        val pref = SettingPreference.getInstance(dataStore)
+//        setViewModel = ViewModelProvider(this, ViewModelFactory(pref))[PreferencesViewModel::class.java]
 
         Handler(Looper.getMainLooper()).postDelayed({
-            setViewModel.getLoginState().observe(this@SplashScreenActivity){state ->
-                if (state){
+            splashScreenViewModel.getUser().observe(this@SplashScreenActivity){
+                if (it.isLogin){
                     val intent = Intent(this@SplashScreenActivity, MainActivity::class.java)
                     startActivity(intent)
                 } else {

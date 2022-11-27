@@ -16,16 +16,16 @@ import androidx.core.content.ContextCompat
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
+import androidx.lifecycle.ViewModelProvider
 import com.musyarrofah.storyapps.R
 import com.musyarrofah.storyapps.databinding.ActivityAddStoryBinding
-import com.musyarrofah.storyapps.preferences.SettingPreference
 import com.musyarrofah.storyapps.repository.StoryRepository
 import com.musyarrofah.storyapps.utils.ViewModelFactory
 import com.musyarrofah.storyapps.utils.reduceFileImage
 import com.musyarrofah.storyapps.utils.rotateBitmap
 import com.musyarrofah.storyapps.utils.uriToFile
+import com.musyarrofah.storyapps.viewmodel.CreateStoryViewModel
 import com.musyarrofah.storyapps.viewmodel.PreferencesViewModel
-import com.musyarrofah.storyapps.viewmodel.StoryViewModel
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
@@ -33,13 +33,14 @@ import okhttp3.RequestBody.Companion.asRequestBody
 import okhttp3.RequestBody.Companion.toRequestBody
 import java.io.File
 
-class AddStoryActivity(repository: StoryRepository) : AppCompatActivity() {
+class CreateStoryActivity(repository: StoryRepository) : AppCompatActivity() {
 
     private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "setting")
 
     private lateinit var binding: ActivityAddStoryBinding
-    private lateinit var storyViewModel: StoryViewModel
+    private lateinit var createStoryViewModel: CreateStoryViewModel
     private lateinit var prefViewModel: PreferencesViewModel
+    private lateinit var factory: ViewModelFactory
 
     companion object {
         const val CAMERA_X_RESULT = 200
@@ -87,19 +88,9 @@ class AddStoryActivity(repository: StoryRepository) : AppCompatActivity() {
             )
         }
 
-        storyViewModel = ViewModelProvider(this)[StoryViewModel::class.java]
-        val pref = SettingPreference.getInstance(dataStore)
-        prefViewModel = ViewModelProvider(this, ViewModelFactory(pref))[PreferencesViewModel::class.java]
+        factory = ViewModelFactory.getInstance(this)
 
-        storyViewModel.addStory.observe(this){
-            if (it != null){
-                showLoading(false)
-                intent = Intent(this, MainActivity::class.java)
-                Toast.makeText(this, getString(R.string.upload_success), Toast.LENGTH_SHORT).show()
-                startActivity(intent)
-                finish()
-            }
-        }
+        createStoryViewModel = ViewModelProvider(this)[CreateStoryViewModel::class.java]
 
         binding.btnCamera.setOnClickListener {
             startCameraX()
@@ -167,7 +158,7 @@ class AddStoryActivity(repository: StoryRepository) : AppCompatActivity() {
 
         if (result.resultCode == RESULT_OK){
             val selectedImg : Uri = result.data?.data as Uri
-            val myFile = uriToFile(selectedImg, this@AddStoryActivity)
+            val myFile = uriToFile(selectedImg, this@CreateStoryActivity)
 
             getFile = myFile
             binding.previewImageView.setImageURI(selectedImg)

@@ -6,6 +6,7 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
@@ -16,6 +17,7 @@ import com.musyarrofah.storyapps.login.LoginRequest
 import com.musyarrofah.storyapps.preferences.SettingPreference
 import com.musyarrofah.storyapps.repository.StoryRepository
 import com.musyarrofah.storyapps.utils.ViewModelFactory
+import com.musyarrofah.storyapps.viewmodel.LoginViewModel
 import com.musyarrofah.storyapps.viewmodel.PreferencesViewModel
 import com.musyarrofah.storyapps.viewmodel.UserViewModel
 
@@ -24,6 +26,8 @@ class LoginActivity(repository: StoryRepository) : AppCompatActivity() {
     private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
 
     private lateinit var binding: ActivityLoginBinding
+    private lateinit var factory: ViewModelFactory
+    private lateinit var loginViewModel: LoginViewModel
 
     // ViewModel
     private lateinit var viewModel: UserViewModel
@@ -36,10 +40,12 @@ class LoginActivity(repository: StoryRepository) : AppCompatActivity() {
 
         supportActionBar?.hide()
 
-        viewModel = ViewModelProvider(this)[UserViewModel::class.java]
+        factory = ViewModelFactory.getInstance(this)
 
-        val pref = SettingPreference.getInstance(dataStore)
-        prefViewModel = ViewModelProvider(this, ViewModelFactory(pref))[PreferencesViewModel::class.java]
+        loginViewModel = ViewModelProvider(this)[LoginViewModel::class.java]
+
+//        val pref = SettingPreference.getInstance(dataStore)
+//        prefViewModel = ViewModelProvider(this, ViewModelFactory(pref))[PreferencesViewModel::class.java]
 
         binding.tvRegister.setOnClickListener {
             intent = Intent(this@LoginActivity, RegisterActivity::class.java)

@@ -4,7 +4,6 @@ import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.musyarrofah.storyapps.api.ApiService
 import com.musyarrofah.storyapps.liststory.StoryResponse
-import com.musyarrofah.storyapps.preference.UserPreferences
 import com.musyarrofah.storyapps.viewmodel.PreferencesViewModel
 import kotlinx.coroutines.flow.first
 
