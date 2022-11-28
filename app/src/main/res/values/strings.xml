@@ -45,5 +45,7 @@
     <string name="muat_ulang">Muat Ulang</string>
     <string name="timeout">Timeout</string>
     <string name="title_activity_maps">MapsActivity</string>
+    <string name="add_lokasi">Add lokasi</string>
+    <string name="camera">Camera</string>
 
 </resources>

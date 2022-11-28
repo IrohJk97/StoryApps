@@ -30,12 +30,12 @@
     <string name="txtLogin">Saya sudah punya akun</string>
     <string name="tvLogin">\tMasuk</string>
     <string name="photo">photo</string>
-
+    <string name="title_activity_maps">MapsActivity</string>
     <string name="story_from">Story Dari : </string>
     <string name="muat_ulang">Muat Ulang</string>
     <string name="timeout">Timeout</string>
-
-
+    <string name="add_lokasi">Add lokasi</string>
+    <string name="camera">Camera</string>
 
 
 </resources>
