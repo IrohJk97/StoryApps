@@ -15,7 +15,6 @@ class PreferencesViewModel private constructor(private val dataStore: DataStore<
         @Volatile
         private var INSTANCE: PreferencesViewModel? = null
 
-        private val USER_ID = stringPreferencesKey("userid")
         private val NAME = stringPreferencesKey("name")
         private val TOKEN = stringPreferencesKey("token")
         private val STATE = booleanPreferencesKey("state")
@@ -32,7 +31,6 @@ class PreferencesViewModel private constructor(private val dataStore: DataStore<
     fun getUserData(): Flow<UserModel> {
         return dataStore.data.map { preferences ->
             UserModel(
-                preferences[USER_ID]?:"",
                 preferences[NAME] ?: "",
                 preferences[TOKEN] ?: "",
                 preferences[STATE] ?: false
@@ -58,22 +56,6 @@ class PreferencesViewModel private constructor(private val dataStore: DataStore<
         dataStore.edit { preferences ->
             preferences.clear()
         }
-    }
-
-    fun saveBearerToken(token: String) {
-        TODO("Not yet implemented")
-    }
-
-    fun saveLoginState(b: Boolean) {
-
-    }
-
-    fun getBearerToken(): Any {
-        TODO("Not yet implemented")
-    }
-
-    fun getLoginState(): Any {
-        TODO("Not yet implemented")
     }
 
 }

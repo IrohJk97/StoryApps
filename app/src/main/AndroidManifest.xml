@@ -60,7 +60,7 @@
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="YOUR_API_KEY" />
+            android:value="AIzaSyB7ycEInUGpOE4GDdUEa-vAnsEQDQEvN9E" />
 
         <activity
             android:name=".maps.MapsActivity"
@@ -82,8 +82,7 @@
             android:exported="true" />
         <activity
             android:name=".adapter.CreateStoryActivity"
-            android:exported="true"
-            tools:ignore="Instantiatable" />
+            android:exported="true"/>
         <activity
             android:name=".adapter.MainActivity"
             android:exported="true" />

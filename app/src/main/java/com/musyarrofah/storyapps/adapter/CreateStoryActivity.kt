@@ -244,13 +244,13 @@ class CreateStoryActivity : AppCompatActivity() {
                     lon = location.longitude
                     Toast.makeText(
                         this,
-                        "Lokasi tersimpan",
+                        "Saved Location",
                         Toast.LENGTH_SHORT
                     ).show()
                 } else {
                     Toast.makeText(
                         this,
-                        "tidak ada lokasi",
+                        "Tidak ada lokasi",
                         Toast.LENGTH_SHORT
                     ).show()
                 }

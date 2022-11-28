@@ -1,26 +1,16 @@
 package com.musyarrofah.storyapps.adapter
 
-import android.content.Context
 import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import androidx.datastore.core.DataStore
-import androidx.datastore.preferences.core.Preferences
-import androidx.datastore.preferences.preferencesDataStore
-import androidx.lifecycle.ViewModelProvider
+import android.view.WindowInsets
+import android.view.WindowManager
 import com.musyarrofah.storyapps.R
-import com.musyarrofah.storyapps.preferences.SettingPreference
-import com.musyarrofah.storyapps.utils.ViewModelFactory
-import com.musyarrofah.storyapps.viewmodel.PreferencesViewModel
-import com.musyarrofah.storyapps.viewmodel.SplashScreenViewModel
 
 class SplashScreenActivity : AppCompatActivity() {
-
-    private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "setting")
-
-    private lateinit var splashScreenViewModel: SplashScreenViewModel
 
     companion object{
         const val DELAY = 4000L
@@ -29,22 +19,23 @@ class SplashScreenActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_screen)
-
+        @Suppress("DEPRECATION")
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            window.insetsController?.hide(WindowInsets.Type.statusBars())
+        } else {
+            window.setFlags(
+                WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN
+            )
+        }
         supportActionBar?.hide()
-
-//        val pref = SettingPreference.getInstance(dataStore)
-//        setViewModel = ViewModelProvider(this, ViewModelFactory(pref))[PreferencesViewModel::class.java]
-
         Handler(Looper.getMainLooper()).postDelayed({
-            splashScreenViewModel.getUser().observe(this@SplashScreenActivity){
-                if (it.isLogin){
-                    val intent = Intent(this@SplashScreenActivity, MainActivity::class.java)
-                    startActivity(intent)
-                } else {
-                    val intent = Intent(this@SplashScreenActivity, LoginActivity::class.java)
-                    startActivity(intent)
-                }
-            }
+            val intent = Intent(this, MainActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+            finish()
+            startActivity(intent)
             finish()}, DELAY)
 
     }

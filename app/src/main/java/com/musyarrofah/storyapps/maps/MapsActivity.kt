@@ -35,10 +35,10 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         activityMapsBinding = ActivityMapsBinding.inflate(layoutInflater)
         setContentView(activityMapsBinding.root)
-
+        supportActionBar?.title = "Maps"
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
         iteratorPage = 1
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager

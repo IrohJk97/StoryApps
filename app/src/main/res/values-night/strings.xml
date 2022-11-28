@@ -2,4 +2,5 @@
 <resources>
     <string name="add_lokasi">Add lokasi</string>
     <string name="camera">Camera</string>
+    <string name="maps">Maps</string>
 </resources>

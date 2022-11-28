@@ -1,88 +1,44 @@
 package com.musyarrofah.storyapps.adapter
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
-import com.musyarrofah.storyapps.R
 import com.musyarrofah.storyapps.databinding.ActivityDetailStoryBinding
 import com.musyarrofah.storyapps.liststory.StoryResponse
-import com.musyarrofah.storyapps.liststory.StoryResult
-
-//class DetailStoryActivity : AppCompatActivity() {
-//    companion object {
-//        const val DETAIL_STORY = "detail_story"
-//    }
-//
-//
-//    private lateinit var binding: ActivityDetailStoryBinding
-//
-//    override fun onCreate(savedInstanceState: Bundle?) {
-//        super.onCreate(savedInstanceState)
-//        binding = ActivityDetailStoryBinding.inflate(layoutInflater)
-//        setContentView(binding.root)
-//
-//        supportActionBar?.title = "Story Detail"
-//        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-//
-//        val data = intent.getParcelableExtra<StoryResult>(DETAIL_STORY)
-//
-//        binding.tvName.text = data?.name
-//        binding.isiDescription.text = data?.description
-//        Glide.with(this)
-//            .load(data?.photoUrl)
-//            .apply(RequestOptions().override(300, 300))
-//            .into(binding.photoDetails)
-//
-//    }
-//
-//    @Suppress("DEPRECATION")
-//    override fun onSupportNavigateUp(): Boolean {
-//        onBackPressed()
-//        return true
-//    }
-//
-//
-//
-//}
 
 class DetailStoryActivity : AppCompatActivity() {
-    private lateinit var detailStoryBinding: ActivityDetailStoryBinding
 
+    companion object {
+        const val DETAIL_STORY = "detail_story"
+    }
+
+    private lateinit var binding: ActivityDetailStoryBinding
+
+    @Suppress("DEPRECATION")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        detailStoryBinding = ActivityDetailStoryBinding.inflate(layoutInflater)
-        setContentView(detailStoryBinding.root)
+        binding = ActivityDetailStoryBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        @Suppress("DEPRECATION")
-        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
-        actionBar?.hide()
-        supportActionBar?.hide()
+        supportActionBar?.title = "Story Detail"
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        setupView()
+        val data = intent.getParcelableExtra<StoryResponse.Story>(DETAIL_STORY)
+
+        binding.tvName.text = data?.name
+        binding.isiDescription.text = data?.description
+        Glide.with(this)
+            .load(data?.photoUrl)
+            .apply(RequestOptions().override(300, 300))
+            .into(binding.photoDetails)
+
     }
 
     @Suppress("DEPRECATION")
-    private fun setupView() {
-        val detail = intent.getParcelableExtra<StoryResponse.Story>(EXTRA_DETAIL)
-
-        detailStoryBinding.apply {
-            tvName.text = detail?.name
-            tvDescription.text = detail?.description
-        }
-        Glide.with(applicationContext)
-            .load(detail?.photoUrl)
-            .apply(RequestOptions.placeholderOf(R.drawable.no_image).error(R.drawable.no_image))
-            .into(detailStoryBinding.ivDetailPhoto)
-
-        detailStoryBinding.buttonKembali.setOnClickListener{
-            Intent(this, MainActivity::class.java).also { startActivity(it) }
-        }
-    }
-    companion object{
-        const val EXTRA_DETAIL = "extra_detail"
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 }
 
