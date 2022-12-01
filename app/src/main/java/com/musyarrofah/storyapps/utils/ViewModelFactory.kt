@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.musyarrofah.storyapps.adapter.*
 import com.musyarrofah.storyapps.di.Injection
-import com.musyarrofah.storyapps.maps.MapsViewModel
+import com.musyarrofah.storyapps.viewmodel.MapsViewModel
 import com.musyarrofah.storyapps.repository.StoryRepository
 import com.musyarrofah.storyapps.viewmodel.*
 import java.lang.IllegalArgumentException

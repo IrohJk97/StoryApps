@@ -1,4 +1,4 @@
-package com.musyarrofah.storyapps.maps
+package com.musyarrofah.storyapps.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel

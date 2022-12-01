@@ -9,19 +9,19 @@ import com.musyarrofah.storyapps.liststory.UserModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
-class PreferencesViewModel private constructor(private val dataStore: DataStore<Preferences>) {
+class PreferencesUser private constructor(private val dataStore: DataStore<Preferences>) {
 
     companion object {
         @Volatile
-        private var INSTANCE: PreferencesViewModel? = null
+        private var INSTANCE: PreferencesUser? = null
 
         private val NAME = stringPreferencesKey("name")
         private val TOKEN = stringPreferencesKey("token")
         private val STATE = booleanPreferencesKey("state")
 
-        fun getInstance(dataStore: DataStore<Preferences>): PreferencesViewModel {
+        fun getInstance(dataStore: DataStore<Preferences>): com.musyarrofah.storyapps.viewmodel.PreferencesUser {
             return INSTANCE ?: synchronized(this) {
-                val instance = PreferencesViewModel(dataStore)
+                val instance = PreferencesUser(dataStore)
                 INSTANCE = instance
                 instance
             }

@@ -21,8 +21,9 @@ import com.musyarrofah.storyapps.R
 import com.musyarrofah.storyapps.adapter.DetailStoryActivity
 import com.musyarrofah.storyapps.databinding.ActivityMapsBinding
 import com.musyarrofah.storyapps.liststory.StoryResponse
-import com.musyarrofah.storyapps.repository.ResultProcess
+import com.musyarrofah.storyapps.utils.Result
 import com.musyarrofah.storyapps.utils.ViewModelFactory
+import com.musyarrofah.storyapps.viewmodel.MapsViewModel
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
@@ -59,9 +60,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             val token = "Bearer " +it.token
             mapsViewModel.getStoryLocation(token).observe(this){
                 when(it){
-                    is ResultProcess.Loading -> {}
-                    is ResultProcess.Success -> showMarker(it.data.listStory)
-                    is ResultProcess.Error -> Toast.makeText(this, it.error, Toast.LENGTH_SHORT).show()
+                    is Result.Loading -> {}
+                    is Result.Success -> showMarker(it.data.listStory)
+                    is Result.Error -> Toast.makeText(this, it.error, Toast.LENGTH_SHORT).show()
                 }
             }
         }

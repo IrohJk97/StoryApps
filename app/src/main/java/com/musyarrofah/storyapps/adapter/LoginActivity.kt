@@ -10,7 +10,7 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.musyarrofah.storyapps.databinding.ActivityLoginBinding
 import com.musyarrofah.storyapps.liststory.UserModel
-import com.musyarrofah.storyapps.repository.ResultProcess
+import com.musyarrofah.storyapps.utils.Result
 import com.musyarrofah.storyapps.utils.ViewModelFactory
 import com.musyarrofah.storyapps.viewmodel.LoginViewModel
 
@@ -37,9 +37,10 @@ class LoginActivity : AppCompatActivity() {
             if (valid()) {
                 val email = binding.edtEmail.text.toString()
                 val password = binding.edtPassword.text.toString()
+
                 loginViewModel.userLogin(email, password).observe(this) {
                     when (it) {
-                        is ResultProcess.Success -> {
+                        is Result.Success -> {
                             showLoading(false)
                             val response = it.data
                             saveUserData(
@@ -52,8 +53,8 @@ class LoginActivity : AppCompatActivity() {
                             startActivity(Intent(this, MainActivity::class.java))
                             finishAffinity()
                         }
-                        is ResultProcess.Loading -> showLoading(true)
-                        is ResultProcess.Error -> {
+                        is Result.Loading -> showLoading(true)
+                        is Result.Error -> {
                             Toast.makeText(this, it.error, Toast.LENGTH_SHORT).show()
                             showLoading(false)
                         }

@@ -20,7 +20,7 @@ import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.musyarrofah.storyapps.R
 import com.musyarrofah.storyapps.databinding.ActivityCreateStoryBinding
-import com.musyarrofah.storyapps.repository.ResultProcess
+import com.musyarrofah.storyapps.utils.Result
 import com.musyarrofah.storyapps.utils.ViewModelFactory
 import com.musyarrofah.storyapps.utils.reduceFileImage
 import com.musyarrofah.storyapps.utils.rotateBitmap
@@ -133,7 +133,7 @@ class CreateStoryActivity : AppCompatActivity() {
                     createStoryViewModel.addStory(token, imageMultipart, description, lat, lon)
                         .observe(this@CreateStoryActivity) {
                             when (it) {
-                                is ResultProcess.Success -> {
+                                is Result.Success -> {
                                     showLoading(false)
                                     startActivity(
                                         Intent(
@@ -145,10 +145,10 @@ class CreateStoryActivity : AppCompatActivity() {
                                     finish()
 
                                 }
-                                is ResultProcess.Loading -> {
+                                is Result.Loading -> {
                                     showLoading(true)
                                 }
-                                is ResultProcess.Error -> {
+                                is Result.Error -> {
                                     Toast.makeText(
                                         this@CreateStoryActivity,
                                         it.error,

@@ -9,7 +9,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.musyarrofah.storyapps.databinding.ActivityRegisterBinding
-import com.musyarrofah.storyapps.repository.ResultProcess
+import com.musyarrofah.storyapps.utils.Result
 import com.musyarrofah.storyapps.utils.ViewModelFactory
 import com.musyarrofah.storyapps.viewmodel.RegisterViewModel
 
@@ -40,13 +40,13 @@ class RegisterActivity : AppCompatActivity() {
                 val password = binding.edtPassword.text.toString()
                 registerViewModel.userRegister(name, email, password).observe(this) {
                     when (it) {
-                        is ResultProcess.Success -> {
+                        is Result.Success -> {
                             showLoading(false)
                             Toast.makeText(this, it.data.message, Toast.LENGTH_SHORT).show()
                             moveToLoginActivity()
                         }
-                        is ResultProcess.Loading -> showLoading(true)
-                        is ResultProcess.Error -> {
+                        is Result.Loading -> showLoading(true)
+                        is Result.Error -> {
                             Toast.makeText(this, it.error, Toast.LENGTH_SHORT).show()
                             showLoading(false)
                         }

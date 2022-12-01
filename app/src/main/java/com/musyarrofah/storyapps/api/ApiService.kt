@@ -1,6 +1,6 @@
 package com.musyarrofah.storyapps.api
 
-import com.musyarrofah.storyapps.addstory.AddStoryResponse
+import com.musyarrofah.storyapps.addstory.CreateStoryResponse
 import com.musyarrofah.storyapps.liststory.StoryResponse
 import com.musyarrofah.storyapps.login.LoginRequest
 import com.musyarrofah.storyapps.login.LoginResponse
@@ -8,7 +8,6 @@ import com.musyarrofah.storyapps.register.RegisterRequest
 import com.musyarrofah.storyapps.register.RegisterResponse
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
-import retrofit2.Response
 import retrofit2.http.*
 
 interface ApiService {
@@ -43,6 +42,6 @@ interface ApiService {
         @Part("description") description: RequestBody,
         @Part("lat") lat: Double?,
         @Part("lon") lon: Double?
-    ): AddStoryResponse
+    ): CreateStoryResponse
 
 }

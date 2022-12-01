@@ -1,8 +1,8 @@
 package com.musyarrofah.storyapps.login
 
 data class LoginResponse(
-    val loginResult: LoginResult,
+    val message: String,
     val error: Boolean ,
-    val message: String
+    val loginResult: LoginResult,
 
 )
