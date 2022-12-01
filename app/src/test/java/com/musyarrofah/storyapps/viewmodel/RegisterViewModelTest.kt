@@ -49,7 +49,7 @@ class RegisterViewModelTest {
     fun `when register failed it should return Error and also not null`() {
         val expected = MutableLiveData<Result<RegisterResponse>>()
         expected.value = Result.Error("Something Error")
-        `when`(repository.registerUser(name, email, password)).thenReturn(expected)
+        `when`(repository.userRegister(name, email, password)).thenReturn(expected)
 
         val actual = registerViewModel.userRegister(name, email, password).getOrAwaitValue()
         Assert.assertTrue(actual is Result.Error)
