@@ -14,9 +14,13 @@ b. Saat pengguna mengalami masalah di koneksi :
 - Memastikan mengembalikan Result.Success.
 
 4. Pengujian Maps View Model :
+a. Saat lokasi maps sudah benar :
 - Memastikan bahwa maps mengembalikan Result.Success
-- Nenastikan bahwa maps mengembalikan data dengan benar
+- Memastikan bahwa maps mengembalikan data dengan benar
+b. Saat lokasi maps salah :
+- Memastikan bahwa maps mengembalikan Result.Error
+- Memastikan bahwa maps mengembalikan data dengan benar
 
-5. Pengujian Main View Model :
+5. Pengujian Main Activity View Model :
 - Memastikan bahwa paging menampilkan data dengan benar
 - Memastikan data tidak null
