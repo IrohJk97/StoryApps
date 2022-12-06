@@ -7,7 +7,12 @@ b. Saat pengguna mengalami masalah di koneksi :
  - Memastikan data tidak null
 
 2. Pengujian Register View Model :
-==> Skenario pengujian register hampir sama dengan Login View Model <==
+a. Saat pengguna berhasil register :
+ - Memastikan jika register berhasil dan mengembalikan Result.Success
+ - Memastikan data tidak null
+b. Saat pengguna mengalami masalah di koneksi :
+ - Memastikan live data akan mengembalikan Result.Error
+ - Memastikan data tidak null
 
 3. Pengujian Create Story View Model :
 - Memastikan create story data tidak null.
