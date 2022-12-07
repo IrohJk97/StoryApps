@@ -19,7 +19,7 @@ a. Saat menambahkan story sudah succes :
 - Memastikan create story data tidak null.
 - Memastikan mengembalikan Result.Success.
 b. Ketika get user di panggil :
-- Memastikan data user yang ambil sesuai
+- Memastikan data user yang di ambil sesuai
 
 4. Pengujian Maps View Model :
 a. Saat lokasi maps sudah Succes :

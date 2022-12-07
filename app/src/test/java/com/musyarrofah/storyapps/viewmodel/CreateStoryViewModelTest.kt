@@ -70,7 +70,7 @@ class CreateStoryViewModelTest {
     }
 
     @Test
-    fun `get User` () {
+    fun `get User is called` () {
 
             // when getUserData is called
             val repository = Mockito.mock(StoryRepository::class.java)
