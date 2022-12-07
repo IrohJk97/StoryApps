@@ -3,6 +3,7 @@ package com.musyarrofah.storyapps.viewmodel
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.MutableLiveData
 import com.musyarrofah.storyapps.liststory.StoryResponse
+import com.musyarrofah.storyapps.liststory.UserModel
 import com.musyarrofah.storyapps.repository.StoryRepository
 import com.musyarrofah.storyapps.utils.AuthDummy
 import com.musyarrofah.storyapps.utils.getOrAwaitValue
@@ -58,6 +59,22 @@ class MapsViewModelTest {
         Mockito.verify(storyRepository).getStoryLocation(token)
         Assert.assertNotNull(actualResponse)
         Assert.assertTrue(actualResponse is Result.Error)
+    }
+
+    @Test
+    fun `get User is called` () {
+
+        // when getUserData is called
+        val repository = Mockito.mock(StoryRepository::class.java)
+        val liveData = MutableLiveData<UserModel>()
+        liveData.value = UserModel("Test", "Ok", true)
+        Mockito.`when`(repository.getUserData()).thenReturn(liveData)
+
+        // Create a MapsViewModel with the mock repository
+        val viewModel = CreateStoryViewModel(repository)
+
+        // Call getUser and verify that the correct LiveData is returned
+        Assert.assertEquals(viewModel.getUser(), liveData)
     }
 
 }
