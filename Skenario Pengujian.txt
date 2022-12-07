@@ -15,8 +15,12 @@ b. Saat pengguna mengalami masalah di koneksi :
  - Memastikan data tidak null
 
 3. Pengujian Create Story View Model :
+a. Saat menambahkan story sudah succes :
 - Memastikan create story data tidak null.
 - Memastikan mengembalikan Result.Success.
+b. Saat Get User :
+- Ketika user di panggil
+-
 
 4. Pengujian Maps View Model :
 a. Saat lokasi maps sudah Succes :
