@@ -22,9 +22,6 @@ import org.mockito.Mockito
 import org.mockito.junit.MockitoJUnitRunner
 import java.io.File
 import com.musyarrofah.storyapps.utils.Result
-import junit.framework.TestCase.assertEquals
-import org.mockito.Mockito.`when`
-import org.mockito.Mockito.mock
 
 @RunWith(MockitoJUnitRunner::class)
 class CreateStoryViewModelTest {
@@ -75,19 +72,17 @@ class CreateStoryViewModelTest {
     @Test
     fun `get User` () {
 
-            // Verify that the MapsViewModel returns the expected user data from the repository
-            assertEquals(storyRepository.getUserData(), MapsViewModel.getUser())
             // when getUserData is called
-            val repository = mock(StoryRepository::class.java)
+            val repository = Mockito.mock(StoryRepository::class.java)
             val liveData = MutableLiveData<UserModel>()
             liveData.value = UserModel("Test", "Ok", true)
-            `when`(repository.getUserData()).thenReturn(liveData)
+            Mockito.`when`(repository.getUserData()).thenReturn(liveData)
 
             // Create a MapsViewModel with the mock repository
-            val viewModel = MapsViewModel(repository)
+            val viewModel = CreateStoryViewModel(repository)
 
             // Call getUser and verify that the correct LiveData is returned
-            assertEquals(viewModel.getUser(), liveData)
+            Assert.assertEquals(viewModel.getUser(), liveData)
         }
 
     }
