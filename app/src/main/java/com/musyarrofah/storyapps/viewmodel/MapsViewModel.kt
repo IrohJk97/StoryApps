@@ -6,6 +6,7 @@ import com.musyarrofah.storyapps.liststory.UserModel
 import com.musyarrofah.storyapps.repository.StoryRepository
 
 class MapsViewModel(private val repository: StoryRepository) : ViewModel() {
+
     fun getStoryLocation(token: String) =
         repository.getStoryLocation(token)
 
