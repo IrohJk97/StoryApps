@@ -93,10 +93,6 @@ class StoryRepository(private val pref: PreferencesUser, private val apiService:
         pref.saveUserData(user)
     }
 
-    suspend fun login() {
-        pref.login()
-    }
-
     suspend fun logout() {
         pref.logout()
     }

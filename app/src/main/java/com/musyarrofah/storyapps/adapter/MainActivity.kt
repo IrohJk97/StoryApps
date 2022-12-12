@@ -95,7 +95,9 @@ class MainActivity : AppCompatActivity() {
             R.id.logout -> {
                 loginViewModel.logout()
                 startActivity(Intent(this@MainActivity, LoginActivity::class.java))
-                finishAffinity()
+                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+                startActivity(intent)
+                finish()
             }
         }
         return super.onOptionsItemSelected(item)
