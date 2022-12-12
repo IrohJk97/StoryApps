@@ -2,12 +2,14 @@ package com.musyarrofah.storyapps.viewmodel
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.MutableLiveData
+import com.musyarrofah.storyapps.liststory.UserModel
 import com.musyarrofah.storyapps.login.LoginResponse
 import com.musyarrofah.storyapps.utils.Result
 import com.musyarrofah.storyapps.repository.StoryRepository
 import com.musyarrofah.storyapps.utils.AuthDummy
 import com.musyarrofah.storyapps.utils.getOrAwaitValue
 import junit.framework.TestCase.*
+import org.junit.Assert
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -59,6 +61,14 @@ class LoginViewModelTest {
         assertNotNull(actual)
     }
 
+    @Test
+    fun saveUser() {
+        val expectedSaveUser = MutableLiveData<UserModel>()
+        expectedSaveUser.value = AuthDummy.getUser()
+        `when`(repository.getUserData()).thenReturn(expectedSaveUser)
+        val viewModel = CreateStoryViewModel(repository)
+        Assert.assertEquals(viewModel.getUser(), expectedSaveUser)
+    }
 
 
 }
