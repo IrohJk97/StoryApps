@@ -2,6 +2,7 @@ package com.musyarrofah.storyapps.utils
 
 import com.musyarrofah.storyapps.addstory.CreateStoryResponse
 import com.musyarrofah.storyapps.liststory.StoryResponse
+import com.musyarrofah.storyapps.liststory.UserModel
 import com.musyarrofah.storyapps.login.LoginResponse
 import com.musyarrofah.storyapps.login.LoginResult
 import com.musyarrofah.storyapps.register.RegisterResponse
@@ -56,6 +57,14 @@ object AuthDummy {
             false,
             "success",
             item
+        )
+    }
+
+    fun getUser(): UserModel{
+        return UserModel(
+            "Bahrul Aqid Zizi",
+            "As3jsdhfuhsos",
+            true
         )
     }
 

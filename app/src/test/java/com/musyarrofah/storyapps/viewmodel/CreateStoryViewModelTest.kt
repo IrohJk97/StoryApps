@@ -69,23 +69,14 @@ class CreateStoryViewModelTest {
         Assert.assertTrue(actualStory is Result.Success)
     }
 
-//    @Test
-//    fun `get User is called` () {
-//
-//            // when getUserData is called
-//            val repository = Mockito.mock(StoryRepository::class.java)
-//            val liveData = MutableLiveData<UserModel>()
-//            liveData.value = UserModel("Test", "Ok", true)
-//            Mockito.`when`(repository.getUserData()).thenReturn(liveData)
-//
-//            // Create a MapsViewModel with the mock repository
-//            val viewModel = CreateStoryViewModel(repository)
-//
-//            // Call getUser and verify that the correct LiveData is returned
-//            Assert.assertEquals(viewModel.getUser(), liveData)
-//        } pengujian ini tidak valid karena seharusnya di cek adalah isi dari live data berupa Usermodel
-//    bukan live data
-
+    @Test
+    fun `When get User is success` () {
+        val expectedUser = MutableLiveData<UserModel>()
+        expectedUser.value = AuthDummy.getUser()
+        Mockito.`when`(storyRepository.getUserData()).thenReturn(expectedUser)
+        val viewModel = CreateStoryViewModel(storyRepository)
+        Assert.assertEquals(viewModel.getUser(), expectedUser)
     }
+}
 
 
