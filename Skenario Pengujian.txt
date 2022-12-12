@@ -24,11 +24,12 @@ b. Ketika get user di panggil :
 4. Pengujian Maps View Model :
 a. Saat lokasi maps sudah Succes :
 - Memastikan bahwa maps mengembalikan Result.Success
-- Memastikan bahwa maps mengembalikan data dengan benar
+- Memastikan data yang dikembalikan sesuai dengan data dummy
 b. Saat lokasi maps error :
 - Memastikan bahwa maps mengembalikan Result.Error
 c. Ketika get user di panggil :
 - Memastikan data user yang di ambil sesuai dengan apa yang diinginkan
+
 5. Pengujian Main Activity View Model :
 - Memastikan bahwa paging menampilkan data dengan benar
 - Memastikan data tidak null

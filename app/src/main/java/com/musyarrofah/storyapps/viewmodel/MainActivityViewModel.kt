@@ -14,7 +14,7 @@ class MainActivityViewModel (private val repository: StoryRepository) : ViewMode
         return  repository.getStory().cachedIn(viewModelScope)
     }
 
-    fun getUser(): LiveData<UserModel> {
-        return repository.getUserData()
-    }
+//    fun getUser(): LiveData<UserModel> {
+//        return repository.getUserData()
+//    } belum diterapkan di unit test
 }
