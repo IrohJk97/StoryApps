@@ -63,11 +63,11 @@ class LoginViewModelTest {
 
     @Test
     fun saveUser() {
-        val expectedSaveUser = MutableLiveData<UserModel>()
-        expectedSaveUser.value = AuthDummy.getUser()
-        `when`(repository.getUserData()).thenReturn(expectedSaveUser)
+        val expectedResponse = MutableLiveData<UserModel>()
+        expectedResponse.value = AuthDummy.getUser()
+        `when`(repository.getUserData()).thenReturn(expectedResponse)
         val viewModel = CreateStoryViewModel(repository)
-        Assert.assertEquals(viewModel.getUser(), expectedSaveUser)
+        Assert.assertEquals(viewModel.getUser(), expectedResponse)
     }
 
 

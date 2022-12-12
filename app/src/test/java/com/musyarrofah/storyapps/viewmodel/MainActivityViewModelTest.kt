@@ -67,11 +67,11 @@ class MainActivityViewModelTest {
 
     @Test
     fun getUser() {
-        val expectedUser = MutableLiveData<UserModel>()
-        expectedUser.value = AuthDummy.getUser()
-        Mockito.`when`(storyRepository.getUserData()).thenReturn(expectedUser)
+        val expectedResponse = MutableLiveData<UserModel>()
+        expectedResponse.value = AuthDummy.getUser()
+        Mockito.`when`(storyRepository.getUserData()).thenReturn(expectedResponse)
         val viewModel = CreateStoryViewModel(storyRepository)
-        Assert.assertEquals(viewModel.getUser(), expectedUser)
+        Assert.assertEquals(viewModel.getUser(), expectedResponse)
     }
 
 }

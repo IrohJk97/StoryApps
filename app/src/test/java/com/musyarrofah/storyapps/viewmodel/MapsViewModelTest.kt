@@ -61,21 +61,13 @@ class MapsViewModelTest {
         Assert.assertTrue(actualResponse is Result.Error)
     }
 
-//    @Test
-//    fun `get User is called` () {
-//
-//        // when getUserData is called
-//        val repository = Mockito.mock(StoryRepository::class.java)
-//        val liveData = MutableLiveData<UserModel>()
-//        liveData.value = UserModel("Test", "Ok", true)
-//        Mockito.`when`(repository.getUserData()).thenReturn(liveData)
-//
-//        // Create a MapsViewModel with the mock repository
-//        val viewModel = CreateStoryViewModel(repository)
-//
-//        // Call getUser and verify that the correct LiveData is returned
-//        Assert.assertEquals(viewModel.getUser(), liveData)
-//    } pengujian ini tidak valid  karena creatstoryviewmodel bukanlah sistem under test di kelas ini.
-//    yang seharusnya diuji adalah fungsi getUser yang ada di MapsViewModel
+    @Test
+    fun `get User is called` () {
+        val expectedResponse = MutableLiveData<UserModel>()
+        expectedResponse.value = AuthDummy.getUser()
+        Mockito.`when`(storyRepository.getUserData()).thenReturn(expectedResponse)
+        val viewModel = CreateStoryViewModel(storyRepository)
+        Assert.assertEquals(viewModel.getUser(), expectedResponse)
+    }
 
 }
