@@ -62,7 +62,7 @@ class MapsViewModelTest {
     }
 
     @Test
-    fun `get User is called` () {
+    fun `get User is success` () {
         val expectedResponse = MutableLiveData<UserModel>()
         expectedResponse.value = AuthDummy.getUser()
         Mockito.`when`(storyRepository.getUserData()).thenReturn(expectedResponse)
