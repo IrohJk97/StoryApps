@@ -62,7 +62,7 @@ object AuthDummy {
 
     fun getUser(): UserModel{
         return UserModel(
-            "Bahrul Aqid Zizi",
+            "Musyarrofah",
             "As3jsdhfuhsos",
             true
         )
