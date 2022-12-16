@@ -6,6 +6,7 @@ import androidx.paging.AsyncPagingDataDiffer
 import androidx.paging.PagingData
 import androidx.recyclerview.widget.ListUpdateCallback
 import com.musyarrofah.storyapps.liststory.StoryResponse
+import com.musyarrofah.storyapps.liststory.UserModel
 import com.musyarrofah.storyapps.paging.PagingSourceTest
 import com.musyarrofah.storyapps.paging.StoryPagingAdapter
 import com.musyarrofah.storyapps.repository.StoryRepository
@@ -62,6 +63,15 @@ class MainActivityViewModelTest {
         assertEquals(dummyStories, differ.snapshot())
         assertEquals(dummyStories.size, differ.snapshot().size)
         assertEquals(dummyStories[0].name, differ.snapshot()[0]?.name)
+    }
+
+    @Test
+    fun getUser() {
+        val expectedResponse = MutableLiveData<UserModel>()
+        expectedResponse.value = AuthDummy.getUser()
+        Mockito.`when`(storyRepository.getUserData()).thenReturn(expectedResponse)
+        val viewModel = MainActivityViewModel(storyRepository)
+        Assert.assertEquals(viewModel.getUser(), expectedResponse)
     }
 
 }
