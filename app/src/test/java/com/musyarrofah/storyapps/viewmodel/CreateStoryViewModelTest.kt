@@ -70,18 +70,13 @@ class CreateStoryViewModelTest {
     }
 
     @Test
-    fun `get User` () {
+    fun `When get User is success` () {
         val expectedResponse = MutableLiveData<UserModel>()
-        expectedResponse.value = UserModel("name", "token", true)
+        expectedResponse.value = AuthDummy.getUser()
         Mockito.`when`(storyRepository.getUserData()).thenReturn(expectedResponse)
-
-        // Create a CreateStoryViewModel with the mock repository
         val viewModel = CreateStoryViewModel(storyRepository)
-
-        // Call getUser and verify that the correct LiveData is returned
         Assert.assertEquals(viewModel.getUser(), expectedResponse)
     }
-
 }
 
 

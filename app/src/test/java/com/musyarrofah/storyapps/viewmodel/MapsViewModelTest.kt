@@ -45,6 +45,7 @@ class MapsViewModelTest {
         Mockito.verify(storyRepository).getStoryLocation(token)
         Assert.assertNotNull(actualStory)
         Assert.assertTrue(actualStory is Result.Success)
+        Assert.assertEquals(expectedStory.value, actualStory)
     }
 
     @Test
@@ -62,15 +63,11 @@ class MapsViewModelTest {
     }
 
     @Test
-    fun `get User` () {
+    fun `get User is success` () {
         val expectedResponse = MutableLiveData<UserModel>()
-        expectedResponse.value = UserModel("name", "token", true)
+        expectedResponse.value = AuthDummy.getUser()
         Mockito.`when`(storyRepository.getUserData()).thenReturn(expectedResponse)
-
-        // Create a MapsViewModel with the mock repository
         val viewModel = MapsViewModel(storyRepository)
-
-        // Call getUser and verify that the correct LiveData is returned
         Assert.assertEquals(viewModel.getUser(), expectedResponse)
     }
 
