@@ -71,7 +71,11 @@ class MainActivityViewModelTest {
         expectedResponse.value = AuthDummy.getUser()
         Mockito.`when`(storyRepository.getUserData()).thenReturn(expectedResponse)
         val viewModel = MainActivityViewModel(storyRepository)
-        Assert.assertEquals(viewModel.getUser(), expectedResponse)
+        val actualResult = viewModel.getUser().getOrAwaitValue()
+        Assert.assertEquals(actualResult, expectedResponse.value)
+        Assert.assertEquals(actualResult.name, expectedResponse.value?.name)
+        Assert.assertEquals(actualResult.token, expectedResponse.value?.token)
+        Assert.assertEquals(actualResult.isLogin, expectedResponse.value?.isLogin)
     }
 
 }

@@ -1,3 +1,5 @@
+@file:Suppress("UNCHECKED_CAST")
+
 package com.musyarrofah.storyapps.utils
 
 import androidx.annotation.VisibleForTesting
