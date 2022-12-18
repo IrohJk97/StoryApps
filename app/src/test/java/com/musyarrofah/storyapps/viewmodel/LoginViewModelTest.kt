@@ -40,8 +40,6 @@ class LoginViewModelTest {
     @Before
     fun setup() {
         loginViewModel = LoginViewModel(repository)
-        loginViewModel.saveUser(authSaveUser)
-        loginViewModel.logout()
     }
 
     @Test
@@ -72,12 +70,14 @@ class LoginViewModelTest {
     @OptIn(ExperimentalCoroutinesApi::class)
     @Test
     fun saveUser() = runTest {
+        loginViewModel.saveUser(authSaveUser)
         verify(repository).saveUserData(authSaveUser)
     }
 
     @OptIn(ExperimentalCoroutinesApi::class)
     @Test
     fun logout() = runTest {
+        loginViewModel.logout()
         verify(repository).logout()
     }
 
