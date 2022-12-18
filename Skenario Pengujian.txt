@@ -24,8 +24,11 @@ a. Saat menambahkan story sudah success :
 - Memastikan mengembalikan Result.Success.
 b. Ketika get user success :
 - Memastikan mengambil data user sesuai data dummy
-- Membandingkan antara data dummy dengan data asli
--
+- Memastikan data respon sebenarnya yang dikembalikan sesuai dengan data respon yang diharapkan
+- Memastikan nama dalam data respon sebenarnya yang dikembalikan sesuai dengan nama dalam data respon yang dharapkan
+- Memastikan token dalam data respon sebenarnya yang dikembalikan sesuai dengan token dalam data respon yang diharapkan
+- Memastikan login dalam data respon sebenarnya yang dikembalikan sesuai dengan login dalam data respon yang diharapkan
+
 4. Pengujian Maps View Model :
 a. Saat lokasi maps Succes :
 - Memastikan data tidak null
@@ -36,6 +39,10 @@ b. Saat lokasi maps error :
 - Memastikan bahwa maps mengembalikan Result.Error
 c. Ketika get user success :
 - Memastikan mengambil data user sesuai data dummy
+- Memastikan data respon sebenarnya yang dikembalikan sesuai dengan data respon yang diharapkan
+- Memastikan nama dalam data respon sebenarnya yang dikembalikan sesuai dengan nama dalam data respon yang dharapkan
+- Memastikan token dalam data respon sebenarnya yang dikembalikan sesuai dengan token dalam data respon yang diharapkan
+- Memastikan login dalam data respon sebenarnya yang dikembalikan sesuai dengan login dalam data respon yang diharapkan
 
 5. Pengujian Main Activity View Model :
 a. Ketika get story success :
@@ -43,3 +50,7 @@ a. Ketika get story success :
 - Memastikan data tidak null
 b. Ketika get user success :
 - Memastikan mengambil data user sesuai data dummy
+- Memastikan data respon sebenarnya yang dikembalikan sesuai dengan data respon yang diharapkan
+- Memastikan nama dalam data respon sebenarnya yang dikembalikan sesuai dengan nama dalam data respon yang dharapkan
+- Memastikan token dalam data respon sebenarnya yang dikembalikan sesuai dengan token dalam data respon yang diharapkan
+- Memastikan login dalam data respon sebenarnya yang dikembalikan sesuai dengan login dalam data respon yang diharapkan
