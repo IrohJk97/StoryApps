@@ -7,8 +7,8 @@ b. Saat pengguna mengalami eror ketika login :
  - Memastikan data tidak null
 c. Ketika save user berhasil :
  - Memastikan data login sudah di save dengan benar sesuai data dummy
-d. Ketika User Logout
- - Memastikan logout sukses
+d. Ketika User Logout :
+ - Memastikan fungsi logout di repository dipanggil
 
 2. Pengujian Register View Model :
 a. Saat pengguna berhasil register :
@@ -24,7 +24,8 @@ a. Saat menambahkan story sudah success :
 - Memastikan mengembalikan Result.Success.
 b. Ketika get user success :
 - Memastikan mengambil data user sesuai data dummy
-
+- Membandingkan antara data dummy dengan data asli
+-
 4. Pengujian Maps View Model :
 a. Saat lokasi maps Succes :
 - Memastikan data tidak null
@@ -37,6 +38,8 @@ c. Ketika get user success :
 - Memastikan mengambil data user sesuai data dummy
 
 5. Pengujian Main Activity View Model :
+a. Ketika get story success :
 - Memastikan bahwa paging menampilkan data sesuai dengan data dummy
 - Memastikan data tidak null
+b. Ketika get user success :
 - Memastikan mengambil data user sesuai data dummy
