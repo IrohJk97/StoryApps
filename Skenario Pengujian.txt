@@ -17,12 +17,12 @@ a. Saat pengguna berhasil register :
 b. Saat pengguna mengalami eror ketika register:
  - Memastikan live data akan mengembalikan Result.Error
  - Memastikan data tidak null
-
 3. Pengujian Create Story View Model :
 a. Saat menambahkan story sudah success :
 - Memastikan create story data tidak null.
 - Memastikan mengembalikan Result.Success.
 b. Ketika get user success :
+- Memastikan mengambil data user sesuai data dummy
 - Memastikan data respon sebenarnya yang dikembalikan sesuai dengan data respon yang diharapkan
 - Memastikan nama dalam data respon sebenarnya yang dikembalikan sesuai dengan nama dalam data respon yang dharapkan
 - Memastikan token dalam data respon sebenarnya yang dikembalikan sesuai dengan token dalam data respon yang diharapkan
@@ -37,6 +37,7 @@ b. Saat lokasi maps error :
 - Memastikan data tidak null
 - Memastikan bahwa maps mengembalikan Result.Error
 c. Ketika get user success :
+- Memastikan mengambil data user sesuai data dummy
 - Memastikan data respon sebenarnya yang dikembalikan sesuai dengan data respon yang diharapkan
 - Memastikan nama dalam data respon sebenarnya yang dikembalikan sesuai dengan nama dalam data respon yang dharapkan
 - Memastikan token dalam data respon sebenarnya yang dikembalikan sesuai dengan token dalam data respon yang diharapkan
@@ -46,7 +47,10 @@ c. Ketika get user success :
 a. Ketika get story success :
 - Memastikan bahwa paging menampilkan data sesuai dengan data dummy
 - Memastikan data tidak null
+- Memastikan ukuran data yang ditampilkan sesuai ukuran data dummy
+- Memastikan nama data pertama yang ditampilkan sesuai dengan nama data pertama dummy
 b. Ketika get user success :
+- Memastikan mengambil data user sesuai data dummy
 - Memastikan data respon sebenarnya yang dikembalikan sesuai dengan data respon yang diharapkan
 - Memastikan nama dalam data respon sebenarnya yang dikembalikan sesuai dengan nama dalam data respon yang dharapkan
 - Memastikan token dalam data respon sebenarnya yang dikembalikan sesuai dengan token dalam data respon yang diharapkan
